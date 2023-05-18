@@ -1,0 +1,248 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    --var:20%;/*用于修改上下两排小格子占的宽度,便于以后修改*/
+    --border:2px solid #fff;
+    --lasting-time:1s;/*整个过程持续时间*/
+    --num:16;/*设置格子总数*/
+    --color-light:#92fa0a;
+}
+html,body{
+    height:100%;
+    width:100%;
+    height:100vh;
+}
+body{
+    position:relative;
+    background: #a4cab6;
+}
+/* 媒体检测 */
+@media handled and (orientation:landscape){
+    body>main{
+        position:absolute;
+        /* height:calc(500px * 1.5); */
+        height:100px;
+        width:calc(900px * 1.5);
+        top:50%;
+        left:50%;
+        margin-top:-250px;
+        margin-left:-450px;
+    }
+}
+
+@media screen{
+    body>main{
+        position:absolute;
+        height:500px;
+        width:900px;
+        top:50%;
+        left:50%;
+        margin-top:-250px;
+        margin-left:-450px;
+    }
+}
+.bulk>div{
+    height:100%;
+    width:100%;
+}
+.up,.bottom{
+    height:20%;
+    width:100%;
+}
+.middle{
+    height:60%;
+    width:100%;
+}
+.up>ul{
+    height:100%;
+    list-style: none;
+}
+
+.bottom>ul{
+    height:100%;
+    list-style: none;
+}
+.up .items{
+    height:100%;
+    border:var(--border);
+    width:var(--var);
+}
+.up .itemsmove{
+    height:100%;
+    border:var(--border);
+    width:var(--var);
+}
+.bottom .items{
+    height:100%;
+    border:var(--border);
+    width:var(--var);
+}
+.bottom .itemsmove{
+    height:100%;
+    border:var(--border);
+    width:var(--var);
+}
+.up li{
+    float:left;
+}
+.bottom li{
+    float:left;
+}
+.center{
+    float:left;
+    height:100%;
+    width:calc(100% - 2 * var(--var));
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+.center>button{
+    height:100px;
+    width:200px;
+    background:#7bc718;
+    border-radius:10px;
+}
+.right,.left{
+    width:var(--var);
+    height:100%;
+    border:var(--border);
+    float:left;
+}
+.middle ul{
+    width:100%;
+    height:100%;
+    list-style: none;
+}
+.middle .items{
+    width:100%;
+    height:100px;
+    border:var(--border);
+}
+.middle .itemsmove{
+    width:100%;
+    height:100px;
+    border:var(--border);
+}
+.items,.itemsmove{
+    background: #41b349;
+    opacity:0.5;
+}
+.first{
+    background:var(--color-light);
+}
+
+/*实现点击center(JS),光标开始移动;再次点击,光标停止移动*/
+/*1.改变类名?可行
+直接用关键帧动画,反正都麻烦*/
+@keyframes move{
+    0%{
+        background: #41b349;
+        opacity:0.5;
+        background:var(--color-light);
+    }
+    6.25%{
+        background: #41b349;
+        opacity:0.5;
+        background:var(--color-light);
+        transform: scale(103%);
+    }
+    6.26%{
+        background: #41b349;
+        opacity:0.5;
+    }
+    100%{
+
+    }
+}
+.i1{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 0) infinite;
+    animation-fill-mode:forwards;
+}
+.i2{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 1) infinite;
+    animation-fill-mode:forwards;
+}
+.i3{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 2) infinite;
+    animation-fill-mode:forwards;
+}
+.i4{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 3) infinite;
+    animation-fill-mode:forwards;
+}
+.i5{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 4) infinite;
+    animation-fill-mode:forwards;
+}
+.i6{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 5) infinite;
+    animation-fill-mode:forwards;
+}
+.i7{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 6) infinite;
+    animation-fill-mode:forwards;
+}
+.i8{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 7) infinite;
+    animation-fill-mode:forwards;
+}
+.i9{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 8) infinite;
+    animation-fill-mode:forwards;
+}
+.i10{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 9) infinite;
+    animation-fill-mode:forwards;
+}
+.i11{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 10) infinite;
+    animation-fill-mode:forwards;
+}
+.i12{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 11) infinite;
+    animation-fill-mode:forwards;
+}
+.i13{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 12) infinite;
+    animation-fill-mode:forwards;
+}
+.i14{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 13) infinite;
+    animation-fill-mode:forwards;
+}
+.i15{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 14) infinite;
+    animation-fill-mode:forwards;
+}
+.i16{
+    animation:move var(--lasting-time) linear calc(var(--lasting-time) / var(--num) * 15) infinite;
+    animation-fill-mode:forwards;
+}
+/* 调整四个角为圆角 */
+.up>ul>li:first-child{
+    border-top-left-radius:20px;
+}
+.up>ul>li:last-child{
+    border-top-right-radius:20px;
+}
+.bottom>ul>li:first-child{
+    border-bottom-left-radius:20px;
+}
+.bottom>ul>li:last-child{
+    border-bottom-right-radius:20px;
+}
+/* 设置hover后,光标自动出现在第一个位置 */
+
+/* 设置button样式 */
+
+/* 字体引入 */
+@font-face{
+    font-family: num1;
+    src:url("图片/yinhexiaoxiongmanyouji.ttf")
+}
+button{
+    font-size:40px;
+    font-family:num1 ;  
+}
+/* 媒体检测 */

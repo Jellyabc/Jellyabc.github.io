@@ -1,0 +1,101 @@
+<!-- 尝试响应式手机端布局 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 实现家庭老虎加玩法 -->
+    <!-- 初阶目标:
+        1.改变颜色实现选择;
+        2.界面美化到位-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+    <header></header>
+    <!-- header部分为顶部,暂时不做编辑 -->
+    <main class="bulk">
+        <!-- 主体部分,实现家庭老虎机功能 -->
+        <div>
+            <header class="up">
+                <ul>
+                    <li class="items first"></li>
+                    <li class="items"></li>
+                    <li class="items"></li>
+                    <li class="items"></li>
+                    <li class="items"></li>
+                </ul>
+            </header>
+            <main class="middle">
+                <div class="left">
+                    <ul>
+                        <li class="items"></li>
+                        <li class="items"></li>
+                        <li class="items"></li>
+                    </ul>
+                </div>
+                <div class="center">
+                    <button>点我!!!</button>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li class="items"></li>
+                        <li class="items"></li>
+                        <li class="items"></li>
+                    </ul>
+                </div>
+            </main>
+            <footer class="bottom">
+                <ul>
+                    <li class="items"></li>
+                    <li class="items"></li>
+                    <li class="items"></li>
+                    <li class="items"></li>
+                    <li class="items"></li>
+                </ul>
+            </footer>
+        </div>
+    </main>
+    
+    <footer></footer>
+    <!-- 不知道干嘛的地方 -->
+    <script>
+        var move=document.querySelector('.center>button')
+        var items=document.getElementsByClassName('items')
+        var itemsmove=document.getElementsByClassName(`itemsmove`)
+        var classname0=[]//点击,存0,赋1;
+        var classname1=['itemsmove i1','itemsmove i2','itemsmove i3','itemsmove i4',
+        'itemsmove i5','itemsmove i16','itemsmove i15','itemsmove i14',
+        'itemsmove i6','itemsmove i7','itemsmove i8','itemsmove i13',
+        'itemsmove i12','itemsmove i11','itemsmove i10','itemsmove i9',]
+        var maintain=[]
+        move.onclick=function(){
+            if(items.length==0){//点击鼠标结束
+                for(i=0;i<itemsmove.length;i++){//获取结束时的状态
+                    maintain[i]=window.getComputedStyle(itemsmove[i]).backgroundColor
+                }
+                while(itemsmove.length != 0){
+                    var i=itemsmove.length-1
+                    itemsmove[i].style.backgroundColor=maintain[i]//将结束时样式设置给相应单元
+                    itemsmove[i].className=classname0[i]
+                    
+                }
+            }
+            else{//点击鼠标开始
+                items[1].className='items'
+                for(i=0;i<items.length;i++){//将原有类名存放
+                    classname0[i]=items[i].className
+                }
+                while(items.length != 0){//赋予新的类名
+                    var i=items.length-1
+                    items[i].style.backgroundColor=''//items.removeAttr()
+                    items[i].className=classname1[i]
+                }
+            }
+        }//实现通过点击改变类名,以到达改变样式的效果
+
+    </script>
+</body>
+</html>
+<!-- 实现定格 -->
